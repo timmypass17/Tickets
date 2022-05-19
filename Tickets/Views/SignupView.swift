@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SignupView: View {
     
-    @EnvironmentObject var loginStore: LoginStore
+    @EnvironmentObject var authStore: AuthStore
     @State private var email = ""
     @State private var password = ""
     
@@ -23,7 +23,7 @@ struct SignupView: View {
             .disableAutocorrection(true)
             
             Button("Sign up") {
-                loginStore.signUp(email: email, password: password)
+                authStore.signUp(email: email, password: password)
             }
             .buttonStyle(.borderedProminent)
             .padding()

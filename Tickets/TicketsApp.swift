@@ -10,7 +10,7 @@ import FirebaseCore
 
 @main
 struct TicketsApp: App {
-    @StateObject private var loginStore = LoginStore()
+    @StateObject private var authStore = AuthStore()
 
     init() {
         FirebaseApp.configure()
@@ -19,18 +19,18 @@ struct TicketsApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                if loginStore.signedIn || loginStore.isSignedIn {
+                if authStore.userSession != nil {
                     VStack {
                         Text("You are signed in")
                         Button("Sign Out") {
-                            loginStore.signOut()
+                            authStore.signOut()
                         }
                     }
                 } else {
                     LoginView()
                 }
             }
-            .environmentObject(loginStore) // allow rest of app to have access to LoginStore()
+            .environmentObject(authStore) // allow rest of app to have access to LoginStore()
         }
     }
 }
