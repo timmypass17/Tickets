@@ -7,22 +7,26 @@
 
 import Foundation
 import FirebaseAuth
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 class AuthStore: ObservableObject {
     // if published variables changes, update views that use this property
     @Published var userSession: FirebaseAuth.User?
     
+    let auth = Auth.auth()
+    
     init() {
-        self.userSession = Auth.auth().currentUser
+        self.userSession = auth.currentUser
     }
     
     // Checks if user was signed in already
     var isSignedIn: Bool {
-        Auth.auth().currentUser != nil
+        auth.currentUser != nil
     }
     
     func signIn(email: String, password: String) {
-        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+        auth.signIn(withEmail: email, password: password) { result, error in
             guard result != nil, error == nil else { return }
             
             // Success
@@ -31,20 +35,32 @@ class AuthStore: ObservableObject {
         }
     }
     
-    func signUp(email: String, password: String) {
-        Auth.auth().createUser(withEmail: email, password: password) { result, error in
+    func signUp(name: String, username: String, email: String, password: String) {
+        auth.createUser(withEmail: email, password: password) { result, error in
             guard result != nil, error == nil else { return }
             
             // Success
             guard let user = result?.user else { return }
             self.userSession = user
             
+            // Create user object to store into firebase
+            let userData = User(uid: user.uid, name: name, email: email, username: username.lowercased())
+            
+            // Add user to firebase
+            do {
+                let db = Firestore.firestore()
+                try db.collection("users")
+                    .document(user.uid)
+                    .setData(from: userData)
+            } catch {
+                print("Error with signing user")
+            }
         }
     }
     
     func signOut() {
         do {
-            try Auth.auth().signOut()
+            try auth.signOut()
             self.userSession = nil
         } catch {
             print("already logged out")

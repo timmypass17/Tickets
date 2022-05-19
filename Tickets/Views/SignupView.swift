@@ -10,12 +10,16 @@ import SwiftUI
 struct SignupView: View {
     
     @EnvironmentObject var authStore: AuthStore
+    @State private var name = ""
+    @State private var username = ""
     @State private var email = ""
     @State private var password = ""
     
     var body: some View {
         VStack {
             VStack {
+                TextField("Name", text: $name)
+                TextField("Username", text: $username)
                 TextField("Email", text: $email)
                 SecureField("Password", text: $password)
             }
@@ -23,7 +27,7 @@ struct SignupView: View {
             .disableAutocorrection(true)
             
             Button("Sign up") {
-                authStore.signUp(email: email, password: password)
+                authStore.signUp(name: name, username: username, email: email, password: password)
             }
             .buttonStyle(.borderedProminent)
             .padding()
