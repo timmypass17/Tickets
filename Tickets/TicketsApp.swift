@@ -7,10 +7,11 @@
 
 import SwiftUI
 import FirebaseCore
+import FirebaseAuth
 
 @main
 struct TicketsApp: App {
-    @StateObject private var authStore = AuthStore()
+    @StateObject private var projectStore = ProjectStore()
 
     init() {
         FirebaseApp.configure()
@@ -19,18 +20,19 @@ struct TicketsApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                if authStore.userSession != nil {
-                    VStack {
-                        Text("You are signed in")
-                        Button("Sign Out") {
-                            authStore.signOut()
+                if projectStore.isSignedIn {
+                    ProjectsListView()
+                        .onAppear {
+                            Task {
+                                projectStore.fetchUser(user: Auth.auth().currentUser!)
+                                print("ProjectsListView: OnAppear")
+                            }
                         }
-                    }
                 } else {
                     LoginView()
                 }
             }
-            .environmentObject(authStore) // allow rest of app to have access to LoginStore()
+            .environmentObject(projectStore) // allow rest of app to have access to ProjectStore()
         }
     }
 }

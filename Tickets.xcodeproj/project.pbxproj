@@ -18,10 +18,20 @@
 		322AB3032834A7B700F74DE3 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 322AB3022834A7B700F74DE3 /* FirebaseDatabaseSwift */; };
 		322AB3052834A7B700F74DE3 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 322AB3042834A7B700F74DE3 /* FirebaseFirestore */; };
 		322AB3072834A7B700F74DE3 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 322AB3062834A7B700F74DE3 /* FirebaseFirestoreCombine-Community */; };
+		3257EBD22836FEF600263D79 /* EditProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3257EBD12836FEF600263D79 /* EditProjectView.swift */; };
+		3257EBD428370A1A00263D79 /* ProjectItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3257EBD328370A1A00263D79 /* ProjectItem.swift */; };
+		3257EBD62837195500263D79 /* ProjectDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3257EBD52837195500263D79 /* ProjectDetail.swift */; };
+		3257EBD92837250C00263D79 /* ThemePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3257EBD82837250C00263D79 /* ThemePicker.swift */; };
+		3257EBDB2837254B00263D79 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3257EBDA2837254B00263D79 /* Theme.swift */; };
+		3257EBDD2837256A00263D79 /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3257EBDC2837256A00263D79 /* ThemeView.swift */; };
+		32662F4D283867A800F52B6A /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32662F4C283867A800F52B6A /* Ticket.swift */; };
+		3266CB3D2835DC430033E09C /* ProjectsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3266CB3C2835DC430033E09C /* ProjectsListView.swift */; };
 		3274E7842834D15100386C8C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274E7832834D15100386C8C /* LoginView.swift */; };
-		3274E78B2834E0FA00386C8C /* AuthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274E78A2834E0FA00386C8C /* AuthStore.swift */; };
+		3274E78B2834E0FA00386C8C /* ProjectStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274E78A2834E0FA00386C8C /* ProjectStore.swift */; };
 		32805F652835AB3700C389EB /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32805F642835AB3700C389EB /* SignupView.swift */; };
 		32805F672835D2C300C389EB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32805F662835D2C300C389EB /* User.swift */; };
+		32B1011E2835FF19003BDC8C /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B1011D2835FF19003BDC8C /* ProfileHeader.swift */; };
+		32B10120283602AE003BDC8C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B1011F283602AE003BDC8C /* SettingsView.swift */; };
 		32D8A74E2834BB6500FAB0DC /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D8A74D2834BB6500FAB0DC /* Project.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,10 +41,20 @@
 		322AB2ED2834A1E300F74DE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		322AB2F02834A1E300F74DE3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		322AB2F72834A5D900F74DE3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3257EBD12836FEF600263D79 /* EditProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectView.swift; sourceTree = "<group>"; };
+		3257EBD328370A1A00263D79 /* ProjectItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectItem.swift; sourceTree = "<group>"; };
+		3257EBD52837195500263D79 /* ProjectDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetail.swift; sourceTree = "<group>"; };
+		3257EBD82837250C00263D79 /* ThemePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePicker.swift; sourceTree = "<group>"; };
+		3257EBDA2837254B00263D79 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		3257EBDC2837256A00263D79 /* ThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
+		32662F4C283867A800F52B6A /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
+		3266CB3C2835DC430033E09C /* ProjectsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsListView.swift; sourceTree = "<group>"; };
 		3274E7832834D15100386C8C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		3274E78A2834E0FA00386C8C /* AuthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStore.swift; sourceTree = "<group>"; };
+		3274E78A2834E0FA00386C8C /* ProjectStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectStore.swift; sourceTree = "<group>"; };
 		32805F642835AB3700C389EB /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		32805F662835D2C300C389EB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		32B1011D2835FF19003BDC8C /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
+		32B1011F283602AE003BDC8C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		32D8A74D2834BB6500FAB0DC /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,7 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				322AB2E92834A1E200F74DE3 /* TicketsApp.swift */,
-				3274E78A2834E0FA00386C8C /* AuthStore.swift */,
+				3274E78A2834E0FA00386C8C /* ProjectStore.swift */,
 				3274E7852834D16000386C8C /* Views */,
 				32D8A74C2834BB1600FAB0DC /* Models */,
 				322AB2ED2834A1E300F74DE3 /* Assets.xcassets */,
@@ -97,10 +117,27 @@
 		3274E7852834D16000386C8C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				328294F628381F2C00CB088A /* Parts */,
 				3274E7832834D15100386C8C /* LoginView.swift */,
 				32805F642835AB3700C389EB /* SignupView.swift */,
+				3266CB3C2835DC430033E09C /* ProjectsListView.swift */,
+				32B1011F283602AE003BDC8C /* SettingsView.swift */,
+				3257EBD12836FEF600263D79 /* EditProjectView.swift */,
+				3257EBD52837195500263D79 /* ProjectDetail.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		328294F628381F2C00CB088A /* Parts */ = {
+			isa = PBXGroup;
+			children = (
+				32B1011D2835FF19003BDC8C /* ProfileHeader.swift */,
+				3257EBD328370A1A00263D79 /* ProjectItem.swift */,
+				3257EBD82837250C00263D79 /* ThemePicker.swift */,
+				3257EBDC2837256A00263D79 /* ThemeView.swift */,
+				3257EBDA2837254B00263D79 /* Theme.swift */,
+			);
+			path = Parts;
 			sourceTree = "<group>";
 		};
 		32D8A74C2834BB1600FAB0DC /* Models */ = {
@@ -108,6 +145,7 @@
 			children = (
 				32805F662835D2C300C389EB /* User.swift */,
 				32D8A74D2834BB6500FAB0DC /* Project.swift */,
+				32662F4C283867A800F52B6A /* Ticket.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -195,12 +233,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32B1011E2835FF19003BDC8C /* ProfileHeader.swift in Sources */,
 				3274E7842834D15100386C8C /* LoginView.swift in Sources */,
-				3274E78B2834E0FA00386C8C /* AuthStore.swift in Sources */,
+				3274E78B2834E0FA00386C8C /* ProjectStore.swift in Sources */,
+				32B10120283602AE003BDC8C /* SettingsView.swift in Sources */,
 				32805F672835D2C300C389EB /* User.swift in Sources */,
 				322AB2EA2834A1E200F74DE3 /* TicketsApp.swift in Sources */,
+				3257EBD22836FEF600263D79 /* EditProjectView.swift in Sources */,
 				32D8A74E2834BB6500FAB0DC /* Project.swift in Sources */,
+				3257EBD62837195500263D79 /* ProjectDetail.swift in Sources */,
+				3266CB3D2835DC430033E09C /* ProjectsListView.swift in Sources */,
+				3257EBD92837250C00263D79 /* ThemePicker.swift in Sources */,
 				32805F652835AB3700C389EB /* SignupView.swift in Sources */,
+				3257EBD428370A1A00263D79 /* ProjectItem.swift in Sources */,
+				32662F4D283867A800F52B6A /* Ticket.swift in Sources */,
+				3257EBDD2837256A00263D79 /* ThemeView.swift in Sources */,
+				3257EBDB2837254B00263D79 /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
