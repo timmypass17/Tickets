@@ -8,18 +8,20 @@
 import SwiftUI
 
 struct EditProjectView: View {
-    @Binding var data: Project
+    @EnvironmentObject var projectStore: ProjectStore
+    @Binding var currentProject: Project
     @State private var newAttendeeName: String = ""
+    
     var body: some View {
         Form {
             Section(header: Text("Project Info")) {
-                TextField("Project Name", text: $data.title)
-                TextField("Type", text: $data.type)
-                TextField("Due Date", text: $data.dueDate)
-                TextField("Description", text: $data.description)
+                TextField("Project Name", text: $currentProject.title)
+                TextField("Type", text: $currentProject.type)
+                TextField("Due Date", text: $currentProject.dueDate)
+                TextField("Description", text: $currentProject.description)
             }
             Section(header: Text("Attendees")) {
-                ForEach(data.attendees.sorted(by: >), id: \.key) { name, _ in
+                ForEach(currentProject.attendees.sorted(by: >), id: \.key) { userID, name in
                     Text(name)
                 }
                 .onDelete { indices in
@@ -29,8 +31,6 @@ struct EditProjectView: View {
                     TextField("New Attendee", text: $newAttendeeName)
                     Button(action: {
                         withAnimation {
-                            let attendee = User(uid: "123", name: newAttendeeName, email: "timmy123@gmail.com", username: "timmy123", projects: [])
-//                            data.attendees.append()
                             newAttendeeName = ""
                         }
                     }) {
@@ -40,16 +40,17 @@ struct EditProjectView: View {
                     .disabled(newAttendeeName.isEmpty)
                 }
             }
+            Button("Delete Project", role: .destructive) {
+                projectStore.deleteProject(project: currentProject)
+            }
         }
-        .navigationTitle("Add Project")
-        
     }
 }
 
 struct EditProjectView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            EditProjectView(data: .constant(Project.sampleData[0]))
+            EditProjectView(currentProject: .constant(Project.sampleData[0]))
         }
     }
 }

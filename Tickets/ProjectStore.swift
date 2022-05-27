@@ -10,6 +10,8 @@ import FirebaseAuth
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
+// TODO: Add attendees to projects document
+
 class ProjectStore: ObservableObject {
     // if published variables changes, update views that use this property
     @Published var currentUser = User()
@@ -65,7 +67,7 @@ class ProjectStore: ObservableObject {
     func fetchUser(user: FirebaseAuth.User) {
         Firestore.firestore().collection("users")
             .document(user.uid)
-            .getDocument { (document, error) in
+            .getDocument { document, error in
                 guard let document = document else { return }
                 guard let user = try? document.data(as: User.self) else { return }
                 
@@ -111,7 +113,7 @@ class ProjectStore: ObservableObject {
         let db = Firestore.firestore()
         db.collection("projects")
             .document(id)
-            .getDocument { (document, error) in
+            .getDocument { document, error in
                 guard let document = document else { return }
                 guard let project = try? document.data(as: Project.self) else { return }
                 
@@ -119,5 +121,32 @@ class ProjectStore: ObservableObject {
 //                self.projects.sorted(by: <#T##(Project, Project) throws -> Bool#>) // sort by due date
             }
         }
-
+    
+    func updateProject(id: String, newProject: Project) {
+        let db = Firestore.firestore()
+        do {
+            // Update projects document
+            try db.collection("projects")
+                .document(id)
+                .setData(from: newProject) // overwrites document (note: could've use updateData(), not sure if it matters)
+        } catch {
+            print("ProjectStore: Error updating user's project")
+        }
+    }
+    
+    func deleteProject(project: Project) {
+        // 1. Delete project document
+        let db = Firestore.firestore()
+        db.collection("projects")
+            .document(project.projectID)
+            .delete()
+        
+        print("Attendees: \(project.attendees.count)")
+        // 2. Remove project from all attendee's project list
+        for (userID, _) in project.attendees {
+            db.collection("users")
+                .document(userID)
+                .updateData(["projects": FieldValue.arrayRemove([project.projectID])]) // updates user document's array element
+        }
+    }
 }

@@ -121,9 +121,9 @@
 				3274E7832834D15100386C8C /* LoginView.swift */,
 				32805F642835AB3700C389EB /* SignupView.swift */,
 				3266CB3C2835DC430033E09C /* ProjectsListView.swift */,
-				32B1011F283602AE003BDC8C /* SettingsView.swift */,
-				3257EBD12836FEF600263D79 /* EditProjectView.swift */,
 				3257EBD52837195500263D79 /* ProjectDetail.swift */,
+				3257EBD12836FEF600263D79 /* EditProjectView.swift */,
+				32B1011F283602AE003BDC8C /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

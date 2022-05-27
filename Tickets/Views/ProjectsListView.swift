@@ -18,10 +18,9 @@ struct ProjectsListView: View {
             VStack {
                 ProfileHeader()
                 Divider()
-                let _ = print(projectStore.projects.count)
-                ForEach(projectStore.projects) { project in
+                ForEach($projectStore.projects) { $project in
                     NavigationLink {
-                        ProjectDetail(data: project)
+                        ProjectDetail(currentProject: $project)
                     } label: {
                         ProjectItem(data: project)
                     }
@@ -32,11 +31,14 @@ struct ProjectsListView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {
-                    isPresentingNewProjectView = true}
-                ) {
+                    // maybe put in onAppear()?
+                    newProject.attendees[projectStore.currentUser.uid] = projectStore.currentUser.name // add author to attendee's list
+                    isPresentingNewProjectView = true
+                }) {
                     Image(systemName: "plus")
                 }
             }
+            // Move this to another page?
             ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink(destination: SettingsView()) {
                     Image(systemName: "ellipsis")
@@ -46,11 +48,12 @@ struct ProjectsListView: View {
         .navigationTitle("My Projects")
         .sheet(isPresented: $isPresentingNewProjectView) {
             NavigationView {
-                EditProjectView(data: $newProject)
+                EditProjectView(currentProject: $newProject)
                     .toolbar {
                         ToolbarItem(placement: .cancellationAction) {
                             Button("Dismiss") {
                                 isPresentingNewProjectView = false
+                                newProject = Project()
                             }
                         }
                         ToolbarItem(placement: .confirmationAction) {
@@ -64,10 +67,12 @@ struct ProjectsListView: View {
                                     
                                     await projectStore.addProject(project: newProject)
                                     isPresentingNewProjectView = false
+                                    newProject = Project()
                                 }
                             }
                         }
                     }
+                    .navigationTitle("New Project")
             }
         }
     }
