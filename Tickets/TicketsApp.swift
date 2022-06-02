@@ -22,9 +22,9 @@ struct TicketsApp: App {
             NavigationView {
                 if projectStore.isSignedIn {
                     ProjectsListView()
-                        .onAppear { /// onAppear gets called twice sometimes, known bug
+                        .onAppear() { /// onAppear gets called twice sometimes, known bug
                             Task {
-                                projectStore.fetchUser(user: Auth.auth().currentUser!)
+                                projectStore.refresh()
                             }
                         }
                 } else {

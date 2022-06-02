@@ -63,6 +63,11 @@ class ProjectStore: ObservableObject {
         }
     }
     
+    // Refresh user and project data
+    func refresh() {
+        fetchUser(user: Auth.auth().currentUser!)
+    }
+    
     // Updates user data
     func fetchUser(user: FirebaseAuth.User) {
         Firestore.firestore().collection("users")
@@ -118,7 +123,6 @@ class ProjectStore: ObservableObject {
                 guard let project = try? document.data(as: Project.self) else { return }
                 
                 self.projects.append(project) // Add to array
-//                self.projects.sorted(by: <#T##(Project, Project) throws -> Bool#>) // sort by due date
             }
         }
     

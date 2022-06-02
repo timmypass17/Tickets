@@ -8,31 +8,31 @@
 import SwiftUI
 
 struct ProjectItem: View {
-    let data: Project
+    let project: Project
     var body: some View {
         HStack(alignment: .top) {
             Image(systemName: "clock")
                 .foregroundColor(.secondary)
             VStack(alignment: .leading) {
                 HStack {
-                    Text(data.type)
+                    Text(project.type)
                         .foregroundColor(.teal)
                     Spacer()
-                    Text(data.dueDate)
+                    Text(project.dueDate)
                         .foregroundColor(.orange)
                 }
                 .padding(.bottom, 4)
                 .font(.subheadline)
                 
-                Text(data.title)
+                Text(project.title)
                     .padding(.bottom, 4)
                     .foregroundColor(.primary)
                     .multilineTextAlignment(.leading)
                 
                 HStack {
-                    Label("4 Attendees", systemImage: "person.3.fill")
+                    Label("\(project.attendees.count) Attendees", systemImage: "person.3.fill")
                     Spacer()
-                    Label("8", systemImage: "ticket")
+                    Label("\(project.tickets.count)", systemImage: "ticket")
                 }
                 .font(.subheadline)
                 .foregroundColor(.secondary)
@@ -49,7 +49,7 @@ struct ProjectItem: View {
 
 struct ProjectItem_Previews: PreviewProvider {
     static var previews: some View {
-        ProjectItem(data: Project.sampleData[1])
+        ProjectItem(project: Project.sampleData[1])
             .previewLayout(.sizeThatFits)
     }
 }

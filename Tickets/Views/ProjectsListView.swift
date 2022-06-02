@@ -22,7 +22,7 @@ struct ProjectsListView: View {
                     NavigationLink {
                         ProjectDetail(currentProject: $project)
                     } label: {
-                        ProjectItem(data: project)
+                        ProjectItem(project: project)
                     }
                 }
                 Spacer()
